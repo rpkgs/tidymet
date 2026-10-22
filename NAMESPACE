@@ -10,6 +10,7 @@ S3method(missInfo,list)
 S3method(missInfo,matrix)
 S3method(plot,dtime)
 S3method(print,dtime)
+S3method(print,missInfo)
 S3method(seq,dtime)
 S3method(window,dtime)
 export(begin)
@@ -62,22 +63,28 @@ import(glue)
 import(iterators)
 import(magrittr)
 import(plyr)
-importFrom(crayon,green)
-importFrom(crayon,red)
-importFrom(lubridate,int_end)
-importFrom(lubridate,int_overlaps)
-importFrom(lubridate,int_start)
-importFrom(lubridate,interval)
-importFrom(lubridate,make_date)
-importFrom(lubridate,ymd)
+importFrom(crayon,
+  green,
+  red
+)
+importFrom(lubridate,
+  int_end,
+  int_overlaps,
+  int_start,
+  interval,
+  make_date,
+  ymd
+)
 importFrom(purrr,map)
-importFrom(stats,"window<-")
-importFrom(stats,.lm.fit)
-importFrom(stats,aggregate)
-importFrom(stats,df)
-importFrom(stats,dist)
-importFrom(stats,end)
-importFrom(stats,median)
-importFrom(stats,pt)
-importFrom(stats,window)
+importFrom(stats,
+  "window<-",
+  .lm.fit,
+  aggregate,
+  df,
+  dist,
+  end,
+  median,
+  pt,
+  window
+)
 importFrom(zoo,na.approx)

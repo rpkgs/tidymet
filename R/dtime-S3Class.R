@@ -34,6 +34,7 @@ print.dtime <- function(x, ...) {
   # cat('data:\n') print(head(x$data))
 }
 
+#' @export 
 print.missInfo <- function(x, ...) {
   ncol <- ncol(x$info)
   print(x$info[, 1:(ncol - 2)])

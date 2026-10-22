@@ -4,12 +4,18 @@
 \name{MissInfo-package}
 \alias{tidymet}
 \alias{tidymet-package}
+\alias{MissInfo-package}
 \title{MissInfo}
 \description{
 detect missing information of meteorological data and interpolate missing values using common interpolation methods
 }
 \author{
 \strong{Maintainer}: Dongdong Kong \email{kongdd.sysu@gmail.com}
+
+Authors:
+\itemize{
+  \item Dongdong Kong \email{kongdd.sysu@gmail.com}
+}
 
 }
 \keyword{information,}
