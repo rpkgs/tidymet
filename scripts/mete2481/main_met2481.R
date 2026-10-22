@@ -1,23 +1,13 @@
 #! /usr/bin/Rscript
-# 1. 处理特殊值flags
-library(Ipaper)
-# library(plyr)
-# library(glue)
-# library(foreach)
-# library(iterators)
-library(lubridate)
-library(missInfo)
-library(purrr)
-library(matrixStats)
-# source("test/process.R")
+# %%
+pacman::p_load(Ipaper, data.table, dplyr, lubridate, matrixStats, tidymet)
 
 # obs_types <- c("avg", "max", "min")
-# ------------------------------------------------------------------------------
-dir_root <- "Z:/DATA/China/2400climate data" %>% path.mnt()
+dir_root <- "Z:/DATA/China/2400climate data" %>% path_mnt()
 dir_root <- "Z:/DATA/China/2400climate data/202001-202103气象数据"
 
-varnames <- c("EVP", "GST", "PRE", "PRS", "RHU", "SSD", "TEM", "WIN")
 # merge_mete2000_txts(dir_root, is_save = TRUE)
+varnames <- c("EVP", "GST", "PRE", "PRS", "RHU", "SSD", "TEM", "WIN")
 
 lst_varnames <- list(
   EVP = c("EVP_sm", "EVP_bg"),

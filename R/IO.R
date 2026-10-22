@@ -21,17 +21,18 @@
 #' @export
 read_mete <- function(file, lst_varnames, ...) {
   var <- guess_variable(file)
-  varnames <- lst_varnames[[var]]
-  varnames <- c(varnames, paste0("QC.", varnames)) # add qc
-  df <- fread(file, ...)
-
+  varnames <- lst_varnames[[var]] %>% { # add `QC.` prefix
+    c(., paste0("QC.", .))
+  }
   vars_common <- c("site", "lat", "lon", "alt", "year", "month", "day")
+
+  df <- fread(file, ...)
   colnames(df) <- c(vars_common, varnames)
   df[df == 32766] <- NA_integer_
   df %>%
     dplyr::mutate(date = make_date(year, month, day)) %>%
     # dplyr::select(-year, -month, -day) %>%
-    .[, -(2:7)] %>%
+    .[, -(2:7)] %>% # rm: lat, lon, alt, year, month, day
     reorder_name(c("site", "date"))
 }
 
@@ -67,5 +68,4 @@ guess_variable <- function(file) str_extract(basename(file), "(?<=_DAY_).*(?= )"
 
 #' @rdname read_mete
 #' @export
-not_select_QC <- . %>%
-  dplyr::select(!starts_with("QC."))
+not_select_QC <- . %>% dplyr::select(!starts_with("QC."))
